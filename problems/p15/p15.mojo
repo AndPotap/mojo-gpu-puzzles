@@ -1,12 +1,8 @@
-from sys import size_of
-from testing import assert_equal
-from gpu.host import DeviceContext
-
-# ANCHOR: axis_sum
 from gpu import thread_idx, block_idx, block_dim, barrier
+from gpu.host import DeviceContext
 from gpu.memory import AddressSpace
 from layout import Layout, LayoutTensor
-
+from testing import assert_equal
 
 comptime TPB = 8
 comptime BATCH = 4
@@ -18,6 +14,7 @@ comptime in_layout = Layout.row_major(BATCH, SIZE)
 comptime out_layout = Layout.row_major(BATCH, 1)
 
 
+# ANCHOR: axis_sum
 fn axis_sum[
     in_layout: Layout, out_layout: Layout
 ](

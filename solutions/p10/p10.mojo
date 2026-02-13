@@ -1,10 +1,9 @@
-from gpu import thread_idx, block_dim, block_idx, barrier
+from gpu import thread_idx, barrier
 from gpu.host import DeviceContext
 from gpu.memory import AddressSpace
 from layout import Layout, LayoutTensor
 from testing import assert_equal
 from sys import argv
-from os.atomic import Atomic
 
 # ANCHOR: shared_memory_race_solution
 

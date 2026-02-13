@@ -1,13 +1,11 @@
-from sys import size_of, argv
-from testing import assert_equal
-from gpu.host import DeviceContext
-
-# ANCHOR: naive_matmul
 from gpu import thread_idx, block_idx, block_dim, barrier
+from gpu.host import DeviceContext
 from gpu.memory import AddressSpace
 from layout import Layout, LayoutTensor
+from sys import argv
+from testing import assert_equal
 
-
+# ANCHOR: naive_matmul
 comptime TPB = 3
 comptime SIZE = 2
 comptime BLOCKS_PER_GRID = (1, 1)
