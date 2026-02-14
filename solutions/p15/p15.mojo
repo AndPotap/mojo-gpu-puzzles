@@ -4,7 +4,7 @@ from gpu.memory import AddressSpace
 from layout import Layout, LayoutTensor
 from testing import assert_equal
 
-comptime TPB = 8
+comptime TPB = 8  # must be a power of 2 greater than SIZE
 comptime BATCH = 4
 comptime SIZE = 6
 comptime BLOCKS_PER_GRID = (1, BATCH)

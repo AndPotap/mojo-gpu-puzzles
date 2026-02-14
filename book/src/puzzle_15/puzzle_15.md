@@ -171,7 +171,8 @@ Input Matrix (4×6) with LayoutTensor:                Block Assignment:
        stride //= 2
    ```
 
-   **Note**: This implementation has a potential race condition where threads simultaneously read from and write to shared memory during the same iteration. A safer approach would separate the read and write phases:
+   **Note**: In terms of correctness, this implementation requires that `TPB` is a power of 2 greater than `SIZE`.
+   Moreover, there is a potential race condition where threads simultaneously read from and write to shared memory during the same iteration. A safer approach would separate the read and write phases:
 
    ```mojo
    stride = TPB // 2
